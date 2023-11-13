@@ -6,7 +6,13 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
-    // final border = 
+    final border = OutlineInputBorder(
+        borderSide: BorderSide(
+          width: 2.0,
+          style: BorderStyle.solid,
+        ),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
+    );
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
@@ -22,37 +28,25 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   hintText: 'Please Enter the amount in USD',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: Colors.black
                   ),
-                  prefixIcon: Icon(Icons.monetization_on_outlined),
+                  prefixIcon: const Icon(Icons.monetization_on_outlined),
                   prefixIconColor: Colors.black,
                   filled: true,
                   fillColor: Colors.white,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 2.0,
-                      style: BorderStyle.solid,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 2.0,
-                      style: BorderStyle.solid,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
+                  focusedBorder: border,
+                  enabledBorder: border,
                 ),
-                keyboardType: TextInputType.numberWithOptions(
+                keyboardType: const TextInputType.numberWithOptions(
                   decimal: true
                 ),
               ),
