@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CurrenceyConverterMaterialPage extends StatelessWidget {
@@ -58,7 +59,9 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
             ),
             TextButton(
               onPressed: (){
-                print('clicked');
+                if (kDebugMode) {
+                  print('clicked');
+                }
               }, 
               child: const Text('click'),
             )
