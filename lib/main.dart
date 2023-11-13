@@ -7,6 +7,7 @@ void main() {
   runApp(const MyCupertinoApp());
 }
 
+// for Material
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// for Cupertino
 class MyCupertinoApp extends StatelessWidget {
   const MyCupertinoApp({super.key});
 
