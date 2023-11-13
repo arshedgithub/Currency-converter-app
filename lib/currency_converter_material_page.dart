@@ -7,13 +7,13 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
   Widget build(BuildContext context){
     // final border = 
 
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.blueGrey,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               '0',
               style: TextStyle(
                 fontSize: 55,
@@ -21,7 +21,7 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(8.0),
               child: TextField(
                 style: TextStyle(
@@ -56,6 +56,12 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
                 ),
               ),
             ),
+            TextButton(
+              onPressed: (){
+                print('clicked');
+              }, 
+              child: const Text('click'),
+            )
           ],
         ),
       ),
