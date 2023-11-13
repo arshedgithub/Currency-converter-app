@@ -1,11 +1,14 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+
 class CurrenceyConverterMaterialPage extends StatelessWidget {
-  const CurrenceyConverterMaterialPage({super.key});
+  CurrenceyConverterMaterialPage({super.key});
+
+  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context){
+    double result = 0;
     final border = OutlineInputBorder(
         borderSide: BorderSide(
           width: 2.0,
@@ -16,13 +19,19 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        elevation: 0,
+        title: const Text('Currency Converter'),
+
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              '0',
-              style: TextStyle(
+            Text(
+              result.toString(),
+              style: const TextStyle(
                 fontSize: 55,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 255, 255, 255),
@@ -31,6 +40,7 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: textEditingController,
                 style: const TextStyle(
                   color: Colors.black,
                 ),
@@ -53,13 +63,11 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextButton(
+              child: ElevatedButton(
                 onPressed: (){
-                  if (kDebugMode) {
-                    print('clicked');
-                  }
+                  result = double.parse(textEditingController.text) * 355;
                 }, 
-                style: TextButton.styleFrom(
+                style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 50),
