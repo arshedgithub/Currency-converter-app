@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
 
-
-class CurrenceyConverterMaterialPage extends StatelessWidget {
+class CurrenceyConverterMaterialPage extends StatefulWidget {
   CurrenceyConverterMaterialPage({super.key});
 
-  final TextEditingController textEditingController = TextEditingController();
+  @override
+  State<CurrenceyConverterMaterialPage> createState() => _CurrenceyConverterMaterialPageState();
+}
+
+class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMaterialPage> {
+  double result = 0;
 
   @override
   Widget build(BuildContext context){
-    double result = 0;
+    final TextEditingController textEditingController = TextEditingController();
+
     final border = OutlineInputBorder(
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           width: 2.0,
           style: BorderStyle.solid,
         ),
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderRadius: BorderRadius.circular(10),
     );
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
-        elevation: 0,
+        elevation: 2,
         title: const Text('Currency Converter'),
-
       ),
       body: Center(
         child: Column(
@@ -66,7 +70,8 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: (){
                   result = double.parse(textEditingController.text) * 355;
-                }, 
+                  setState(() {}); 
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
