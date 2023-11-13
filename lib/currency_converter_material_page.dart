@@ -22,6 +22,11 @@ class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMater
       borderRadius: BorderRadius.circular(10),
     );
 
+    void convert(){
+      result = double.parse(textEditingController.text) * 355;
+      setState((){}); // rebuild
+    }
+
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
@@ -30,20 +35,20 @@ class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMater
         title: const Text('Currency Converter'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              result.toString(),
-              style: const TextStyle(
-                fontSize: 55,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 255, 255, 255),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'LKR ${result != 0 ? result.toStringAsFixed(3) : result.toStringAsFixed(0)}',
+                style: const TextStyle(
+                  fontSize: 55,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
+              TextField(
                 controller: textEditingController,
                 style: const TextStyle(
                   color: Colors.black,
@@ -64,14 +69,9 @@ class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMater
                   decimal: true
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: (){
-                  result = double.parse(textEditingController.text) * 355;
-                  setState(() {}); 
-                },
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: convert,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
@@ -81,9 +81,9 @@ class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMater
                   )
                 ),
                 child: const Text('Convert'),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
