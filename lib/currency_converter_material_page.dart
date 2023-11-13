@@ -9,11 +9,26 @@ class CurrenceyConverterMaterialPage extends StatefulWidget {
 
 class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMaterialPage> {
   double result = 0;
+  final TextEditingController textEditingController = TextEditingController();
+
+  void convert(){
+    result = double.parse(textEditingController.text) * 355;
+    setState((){}); // rebuild
+  }  
+
+  @override
+  void initState(){
+    super.initState();
+  }
+
+  @override
+  void dispose(){
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context){
-    final TextEditingController textEditingController = TextEditingController();
-
     final border = OutlineInputBorder(
         borderSide: const BorderSide(
           width: 2.0,
@@ -21,11 +36,6 @@ class _CurrenceyConverterMaterialPageState extends State<CurrenceyConverterMater
         ),
       borderRadius: BorderRadius.circular(10),
     );
-
-    void convert(){
-      result = double.parse(textEditingController.text) * 355;
-      setState((){}); // rebuild
-    }
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
