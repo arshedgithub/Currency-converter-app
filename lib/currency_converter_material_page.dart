@@ -11,7 +11,7 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
           width: 2.0,
           style: BorderStyle.solid,
         ),
-      borderRadius: BorderRadius.all(Radius.circular(20)),
+      borderRadius: BorderRadius.all(Radius.circular(10)),
     );
 
     return Scaffold(
@@ -51,13 +51,21 @@ class CurrenceyConverterMaterialPage extends StatelessWidget {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: (){
-                if (kDebugMode) {
-                  print('clicked');
-                }
-              }, 
-              child: const Text('click'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: (){
+                  if (kDebugMode) {
+                    print('clicked');
+                  }
+                }, 
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.black),
+                  foregroundColor: MaterialStatePropertyAll(Colors.white),
+                  minimumSize: MaterialStatePropertyAll(Size(double.infinity, 50)),
+                ),
+                child: const Text('Convert'),
+              ),
             )
           ],
         ),
